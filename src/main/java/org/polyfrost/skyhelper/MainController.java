@@ -1,17 +1,17 @@
-package org.polyfrost.example;
+package org.polyfrost.skyhelper;
 
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
-import org.polyfrost.example.command.BlockESPCommand;
-import org.polyfrost.example.command.HomeCommand;
-import org.polyfrost.example.command.MacroStatusCommand;
-import org.polyfrost.example.config.TestConfig;
+import org.polyfrost.skyhelper.command.BlockESPCommand;
+import org.polyfrost.skyhelper.command.HomeCommand;
+import org.polyfrost.skyhelper.command.MacroStatusCommand;
+import org.polyfrost.skyhelper.config.TestConfig;
 import cc.polyfrost.oneconfig.events.event.InitializationEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import org.polyfrost.example.mining.BlockESP;
-import org.polyfrost.example.mining.ScanBlocks;
-import org.polyfrost.example.util.Chatter;
+import org.polyfrost.skyhelper.mining.BlockESP;
+import org.polyfrost.skyhelper.mining.ScanBlocks;
+import org.polyfrost.skyhelper.util.Chatter;
 
 /**
  * The entrypoint of the Example Mod that initializes it.

@@ -1,4 +1,4 @@
-package org.polyfrost.example.mining;
+package org.polyfrost.skyhelper.mining;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -8,7 +8,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.polyfrost.example.player.Player;
+import org.polyfrost.skyhelper.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;

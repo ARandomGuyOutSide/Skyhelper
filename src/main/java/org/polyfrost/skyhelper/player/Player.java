@@ -1,18 +1,12 @@
-package org.polyfrost.example.player;
+package org.polyfrost.skyhelper.player;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.event.ClickEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
-import org.polyfrost.example.util.InventoryStuff;
-
-import javax.swing.text.JTextComponent;
-import java.util.List;
 
 public class Player {
     private static Minecraft mc = Minecraft.getMinecraft();

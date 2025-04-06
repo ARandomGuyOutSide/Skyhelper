@@ -1,7 +1,7 @@
-package org.polyfrost.example.config;
+package org.polyfrost.skyhelper.config;
 
-import org.polyfrost.example.MainController;
-import org.polyfrost.example.hud.TestHud;
+import org.polyfrost.skyhelper.MainController;
+import org.polyfrost.skyhelper.hud.TestHud;
 import cc.polyfrost.oneconfig.config.Config;
 import cc.polyfrost.oneconfig.config.annotations.Dropdown;
 import cc.polyfrost.oneconfig.config.annotations.HUD;

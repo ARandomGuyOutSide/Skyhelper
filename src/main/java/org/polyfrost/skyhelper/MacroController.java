@@ -1,13 +1,13 @@
-package org.polyfrost.example;
+package org.polyfrost.skyhelper;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import org.polyfrost.example.player.Player;
-import org.polyfrost.example.util.Chatter;
-import org.polyfrost.example.util.InventoryStuff;
-import org.polyfrost.example.util.Timer;
+import org.polyfrost.skyhelper.player.Player;
+import org.polyfrost.skyhelper.util.Chatter;
+import org.polyfrost.skyhelper.util.InventoryStuff;
+import org.polyfrost.skyhelper.util.Timer;
 
 public class MacroController {
     private static int delayTicks = 0;

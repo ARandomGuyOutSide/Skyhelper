@@ -1,4 +1,4 @@
-package org.polyfrost.example.command;
+package org.polyfrost.skyhelper.command;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
@@ -6,7 +6,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
-import org.polyfrost.example.mining.BlockESP;
+import org.polyfrost.skyhelper.mining.BlockESP;
 
 import java.util.ArrayList;
 import java.util.List;

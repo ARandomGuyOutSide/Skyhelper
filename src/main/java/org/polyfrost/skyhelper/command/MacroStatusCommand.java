@@ -1,10 +1,9 @@
-package org.polyfrost.example.command;
+package org.polyfrost.skyhelper.command;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import org.polyfrost.example.MacroController;
-import org.polyfrost.example.MainController;
+import org.polyfrost.skyhelper.MacroController;
 
 public class MacroStatusCommand extends CommandBase {
 
@@ -20,9 +19,12 @@ public class MacroStatusCommand extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        if(args.length == 0)
+        if(args.length == 1)
         {
-            MacroController.setState("warpToForge");
+            if(args[0].equals("com"))
+                MacroController.setState("warpToForge");
+            else if(args[0].equals("mine"))
+                MacroController.setState("scanBlocks");
         }
     }
 

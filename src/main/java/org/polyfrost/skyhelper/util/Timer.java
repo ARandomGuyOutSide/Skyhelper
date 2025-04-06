@@ -1,9 +1,4 @@
-package org.polyfrost.example.util;
-
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-
-import java.util.concurrent.*;
+package org.polyfrost.skyhelper.util;
 
 public class Timer {
 

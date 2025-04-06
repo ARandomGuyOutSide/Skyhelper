@@ -1,4 +1,4 @@
-package org.polyfrost.example.mining;
+package org.polyfrost.skyhelper.mining;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

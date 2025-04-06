@@ -1,4 +1,4 @@
-package org.polyfrost.example.util;
+package org.polyfrost.skyhelper.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;

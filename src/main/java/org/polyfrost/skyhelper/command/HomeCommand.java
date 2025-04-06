@@ -1,4 +1,4 @@
-package org.polyfrost.example.command;
+package org.polyfrost.skyhelper.command;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
