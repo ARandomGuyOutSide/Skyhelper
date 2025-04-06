@@ -1,7 +1,7 @@
-package org.polyfrost.example.hud;
+package org.polyfrost.skyhelper.hud;
 
 import cc.polyfrost.oneconfig.hud.SingleTextHud;
-import org.polyfrost.example.config.TestConfig;
+import org.polyfrost.skyhelper.config.TestConfig;
 
 /**
  * An example OneConfig HUD that is started in the config and displays text.
