@@ -7,7 +7,7 @@ public class Chatter {
 
     static Minecraft mc = Minecraft.getMinecraft();
 
-    public static void sendChatLessageToUser(String message)
+    public static void sendChatMessageToUser(String message)
     {
         mc.thePlayer.addChatMessage(new ChatComponentText("[§cSkyblockHelper§r] " + message));
 
@@ -17,5 +17,10 @@ public class Chatter {
         0 = black
         a = green
          */
+    }
+
+    public static void sendDebutChat(String message)
+    {
+        mc.thePlayer.addChatComponentMessage(new ChatComponentText(message));
     }
 }

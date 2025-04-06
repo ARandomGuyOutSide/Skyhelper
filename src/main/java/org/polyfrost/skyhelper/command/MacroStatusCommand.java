@@ -4,8 +4,17 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import org.polyfrost.skyhelper.MacroController;
+import org.polyfrost.skyhelper.util.Chatter;
 
 public class MacroStatusCommand extends CommandBase {
+
+    private enum MiningState
+    {
+        ENABLED,
+        DISABLED
+    }
+
+    MiningState miningState = MiningState.DISABLED;
 
     @Override
     public String getCommandName() {
@@ -22,9 +31,22 @@ public class MacroStatusCommand extends CommandBase {
         if(args.length == 1)
         {
             if(args[0].equals("com"))
-                MacroController.setState("warpToForge");
+                MacroController.setState(MacroController.SetupState.WARP_TO_FORGE);
             else if(args[0].equals("mine"))
-                MacroController.setState("scanBlocks");
+            {
+                if(miningState.equals(MiningState.DISABLED))
+                {
+                    MacroController.setState(MacroController.MiningState.SEARCH_FOR_BLOCK);
+                    Chatter.sendChatMessageToUser("mining macro has been §aenabled");
+                    miningState = MiningState.ENABLED;
+                }
+                else
+                {
+                    MacroController.setState(MacroController.MiningState.NONE);
+                    Chatter.sendChatMessageToUser("mining macro has been §cdisabled");
+                    miningState = MiningState.DISABLED;
+                }
+            }
         }
     }
 

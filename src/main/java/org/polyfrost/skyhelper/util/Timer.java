@@ -4,7 +4,7 @@ public class Timer {
 
     public static int secondsToTicks(int seconds)
     {
-        Chatter.sendChatLessageToUser("Waiting for " + seconds + " seconds");
+        Chatter.sendChatMessageToUser("Waiting for " + seconds + " seconds");
         return seconds * 20;
 
     }

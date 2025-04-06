@@ -47,6 +47,6 @@ public class MainController {
 
     public static void onMacroDisable()
     {
-        Chatter.sendChatLessageToUser("Macro status chanced to §cdisabled§r");
+        Chatter.sendChatMessageToUser("Macro status chanced to §cdisabled§r");
     }
 }

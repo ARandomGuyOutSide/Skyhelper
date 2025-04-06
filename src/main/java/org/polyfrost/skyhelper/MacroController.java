@@ -4,6 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import org.polyfrost.skyhelper.mining.BlockESP;
+import org.polyfrost.skyhelper.mining.ScanBlocks;
 import org.polyfrost.skyhelper.player.Player;
 import org.polyfrost.skyhelper.util.Chatter;
 import org.polyfrost.skyhelper.util.InventoryStuff;
@@ -11,7 +13,22 @@ import org.polyfrost.skyhelper.util.Timer;
 
 public class MacroController {
     private static int delayTicks = 0;
-    private static String state = "";
+
+    public enum SetupState {
+        WARP_TO_FORGE,
+        GET_MINING_TOOL,
+        OPEN_SKYBLOCK_MENU,
+        NONE
+    }
+
+    public enum MiningState {
+        SEARCH_FOR_BLOCK,
+        NONE
+    }
+
+
+    private static SetupState setupState = SetupState.NONE;
+    private static MiningState miningState = MiningState.NONE;
 
     private static Minecraft mc = Minecraft.getMinecraft();
 
@@ -26,30 +43,44 @@ public class MacroController {
             return;
         }
 
-        switch (state)
+        switch (setupState)
         {
-            case "warpToForge":
-                Chatter.sendChatLessageToUser("Macro status changed to §aenabled§r");
+            case WARP_TO_FORGE:
+                Chatter.sendChatMessageToUser("Macro status changed to §aenabled§r");
                 Player.warpToForge();
-                state = "getMiningTool";
+                setupState = SetupState.GET_MINING_TOOL;
                 mc.thePlayer.addChatComponentMessage(new ChatComponentText("Waiting three seconds"));
                 delayTicks = Timer.secondsToTicks(3);
                 break;
-            case "getMiningTool":
+            case GET_MINING_TOOL:
                 Player.getMiningTool();
-                state = "openSkyblockMenu";
+                setupState = SetupState.OPEN_SKYBLOCK_MENU;
                 delayTicks = Timer.secondsToTicks(1);
                 break;
-            case "openSkyblockMenu":
+            case OPEN_SKYBLOCK_MENU:
                 Player.openSkyblockMenu();
                 delayTicks = Timer.secondsToTicks(1);
                 InventoryStuff.clickOpenContainerSlot(44);
-                state = "";
+                setupState = SetupState.NONE;
                 break;
         }
+
+        switch (miningState)
+        {
+            case SEARCH_FOR_BLOCK:
+                BlockESP.setBlockESPOfBlockWithPos(ScanBlocks.findClosestBlockToMouse());
+
+                break;
+        }
+
     }
 
-    public static void setState(String state) {
-        MacroController.state = state;
+    public static void setState(SetupState state) {
+        setupState = state;
+    }
+
+    public static void setState(MiningState state)
+    {
+         miningState = state;
     }
 }
