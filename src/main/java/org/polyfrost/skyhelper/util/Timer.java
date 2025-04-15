@@ -2,9 +2,9 @@ package org.polyfrost.skyhelper.util;
 
 public class Timer {
 
-    public static int secondsToTicks(int seconds)
+    public static double secondsToTicks(double seconds)
     {
-        Chatter.sendChatMessageToUser("Waiting for " + seconds + " seconds");
+        Chatter.sendDebutChat("Waiting for " + seconds + " seconds");
         return seconds * 20;
 
     }

@@ -19,13 +19,17 @@ public class BlockESP {
 
     private static List<BlockPos> blockPosList = new ArrayList<>();
 
-    private static BlockPos blockPos;
+    private static BlockPos singleBlockPos;
 
-    public static void setBlockESPOfBlockWithPos(BlockPos blockPos2) {
-        blockPos = blockPos2;
+    private static Minecraft mc = Minecraft.getMinecraft();
+
+    // Set a single block to render with ESP
+    public static void setSingleBlockESP(BlockPos pos) {
+        singleBlockPos = pos;
     }
 
-    public static void setBlockESPOfBlockWithList(List<BlockPos> list) {
+    // Set multiple blocks to render with ESP
+    public static void setBlockESPList(List<BlockPos> list) {
         blockPosList = list;
     }
 
@@ -33,16 +37,15 @@ public class BlockESP {
     public void onRenderWorldLast(RenderWorldLastEvent event) {
         if (blockPosList == null) return;
 
-        if(blockPos != null)
-        {
+        if (singleBlockPos != null) {
             Minecraft mc = Minecraft.getMinecraft();
-            double x = blockPos.getX() - mc.getRenderManager().viewerPosX;
-            double y = blockPos.getY() - mc.getRenderManager().viewerPosY;
-            double z = blockPos.getZ() - mc.getRenderManager().viewerPosZ;
+            double x = singleBlockPos.getX() - mc.getRenderManager().viewerPosX;
+            double y = singleBlockPos.getY() - mc.getRenderManager().viewerPosY;
+            double z = singleBlockPos.getZ() - mc.getRenderManager().viewerPosZ;
 
             AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1);
 
-            // Füllt die Fläche des Blocks (transparente Box)
+            // Draws a transparent box on the block
             drawFilledBox(box, 1.0f, 0.0f, 0.0f, 0.3f);
         }
 
@@ -54,11 +57,10 @@ public class BlockESP {
 
             AxisAlignedBB box = new AxisAlignedBB(x, y, z, x + 1, y + 1, z + 1);
 
-            // Füllt die Fläche des Blocks (transparente Box)
+            // Draws a transparent box on the block
             drawFilledBox(box, 1.0f, 0.0f, 0.0f, 0.3f);
         }
     }
-
 
     // Code from MightyMiner v2
     private void drawFilledBox(AxisAlignedBB box, float red, float green, float blue, float alpha) {
@@ -72,43 +74,57 @@ public class BlockESP {
 
         GlStateManager.color(red, green, blue, alpha);
 
+        // Bottom face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.minX, box.minY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.minY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.minY, box.maxZ).endVertex();
         worldrenderer.pos(box.minX, box.minY, box.maxZ).endVertex();
         tessellator.draw();
+
+        // Top face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.minX, box.maxY, box.maxZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.maxZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.minZ).endVertex();
         worldrenderer.pos(box.minX, box.maxY, box.minZ).endVertex();
         tessellator.draw();
+
+        // West face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.minX, box.minY, box.maxZ).endVertex();
         worldrenderer.pos(box.minX, box.maxY, box.maxZ).endVertex();
         worldrenderer.pos(box.minX, box.maxY, box.minZ).endVertex();
         worldrenderer.pos(box.minX, box.minY, box.minZ).endVertex();
         tessellator.draw();
+
+        // East face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.maxX, box.minY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.maxZ).endVertex();
         worldrenderer.pos(box.maxX, box.minY, box.maxZ).endVertex();
         tessellator.draw();
+
+        // North face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.minX, box.maxY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.minZ).endVertex();
         worldrenderer.pos(box.maxX, box.minY, box.minZ).endVertex();
         worldrenderer.pos(box.minX, box.minY, box.minZ).endVertex();
         tessellator.draw();
+
+        // South face
         worldrenderer.begin(7, DefaultVertexFormats.POSITION);
         worldrenderer.pos(box.minX, box.minY, box.maxZ).endVertex();
         worldrenderer.pos(box.maxX, box.minY, box.maxZ).endVertex();
         worldrenderer.pos(box.maxX, box.maxY, box.maxZ).endVertex();
         worldrenderer.pos(box.minX, box.maxY, box.maxZ).endVertex();
         tessellator.draw();
+
+        // Draw wireframe outline
         RenderGlobal.drawSelectionBoundingBox(box);
+
         GL11.glLineWidth(1.0f);
         GlStateManager.enableTexture2D();
         GlStateManager.enableDepth();

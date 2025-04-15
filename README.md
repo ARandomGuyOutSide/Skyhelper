@@ -1,22 +1,29 @@
-# OneConfigExampleMod
+<h1>SkyHelper</h1>
+A Minecraft 1.8.9 mod designed to improve the Hypixel SkyBlock mining experience with a bunch of helpful (and chaotic) automation features.
 
-![Powered by OneConfig](https://polyfrost.org/media/branding/badges/badge_1.svg)
-![Compact Powered by OneConfig](https://polyfrost.org/media/branding/badges/badge_2.svg)
-![Minimal Powered by OneConfig](https://polyfrost.org/media/branding/badges/badge_3.svg)
-![Minimal Compact Powered by OneConfig](https://polyfrost.org/media/branding/badges/badge_4.svg)
+Inspired by MightyMinerv2 and proudly made of spaghetti code 🍝 — you've been warned.
 
-Example mod implementing OneConfig.
+This mod should be a temporary macro while MM is not updated
 
-## How to use
+PS: I'm just starting with Minecraft modding, so please set your expectations low. 😅
 
-- Copy the template either by using GitHub's "Use this template" feature or downloading the repo manually.
-- **Remove the license named "LICENSE-TEMPLATE" and choose a new one.**
-- Refactor the template (specifically, the modid, version and name in the gradle.properties and most of the class names)
-  to a different name.
-- Have fun modding! :D
+<h3>Features</h3>
+<ul>
+  <li>Smooth rotation to blocks (with configurable speed).</li>
+  <li>Automatic mining + optional sneaking & forward movement.</li>
+  <li>Auto-use of abilities for drills, gauntlets, and pickaxes.</li>
+  <li>Light movement after mining to look more "human".</li>
+  <li>Easy warp and SkyBlock menu opening.</li>
+</ul>
 
-## Need to update to a newer commit of this template?
+<h3>Coming (not very) soon</h3>
+<ul>
+  <li>Gemstone powder macro</li>
+  <li>Glacite tunnels macro</li>
+  <li>Foraging macro 💀</li>
+  <li>Some modifications like fly, speed, player ESP, fastplace, and much more</li>
+</ul>
 
-Check out these update guides:
-- [Updating to commit `fd8e095`](update-to-fd8e095.md) (most recent update)
-- [Updating to commit `301a6ca`](update-to-301a6ca.md)
+<h3>Contribute</h3>
+Got suggestions? Found a bug? Want to give tips or roast the spaghetti?
+Message me on Discord! I'm always open for feedback or ideas.

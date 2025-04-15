@@ -3,7 +3,11 @@ package org.polyfrost.skyhelper.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.util.BlockPos;
 import org.polyfrost.skyhelper.MacroController;
+import org.polyfrost.skyhelper.mining.BlockESP;
+import org.polyfrost.skyhelper.mining.ScanBlocks;
+import org.polyfrost.skyhelper.player.Player;
 import org.polyfrost.skyhelper.util.Chatter;
 
 public class MacroStatusCommand extends CommandBase {
@@ -28,7 +32,7 @@ public class MacroStatusCommand extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        if(args.length == 1)
+        if(args.length >= 1)
         {
             if(args[0].equals("com"))
                 MacroController.setState(MacroController.SetupState.WARP_TO_FORGE);
@@ -44,6 +48,7 @@ public class MacroStatusCommand extends CommandBase {
                 {
                     MacroController.setState(MacroController.MiningState.NONE);
                     Chatter.sendChatMessageToUser("mining macro has been §cdisabled");
+                    BlockESP.setSingleBlockESP(null);
                     miningState = MiningState.DISABLED;
                 }
             }

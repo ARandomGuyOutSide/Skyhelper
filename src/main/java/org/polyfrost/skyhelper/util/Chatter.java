@@ -2,6 +2,7 @@ package org.polyfrost.skyhelper.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
+import org.polyfrost.skyhelper.MainController;
 
 public class Chatter {
 
@@ -21,6 +22,9 @@ public class Chatter {
 
     public static void sendDebutChat(String message)
     {
-        mc.thePlayer.addChatComponentMessage(new ChatComponentText(message));
+        if(MainController.config.isDebugMode())
+        {
+            mc.thePlayer.addChatComponentMessage(new ChatComponentText(message));
+        }
     }
 }
