@@ -9,7 +9,6 @@ import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
-import org.polyfrost.skyhelper.command.MacroStatusCommand;
 import org.polyfrost.skyhelper.config.SkyHelperConfig;
 import cc.polyfrost.oneconfig.events.event.InitializationEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -58,7 +57,6 @@ public class MainController {
         MinecraftForge.EVENT_BUS.register(new BlockESP());
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new ScanBlocks());
-        ClientCommandHandler.instance.registerCommand(new MacroStatusCommand());
         MinecraftForge.EVENT_BUS.register(new MacroController());
         MinecraftForge.EVENT_BUS.register(new Failsaves());
         MinecraftForge.EVENT_BUS.register(new Player());
